@@ -1,0 +1,31 @@
+{
+  "name": "idmt-380--2020-final--design",
+  "version": "1.0.0",
+  "description": "Design System Final Project - Design",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wwwApp/idmt-380--2020-final--design.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wwwApp/idmt-380--2020-final--design/issues"
+  },
+  "homepage": "https://github.com/wwwApp/idmt-380--2020-final--design#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@storybook/addon-actions": "^5.3.18",
+    "@storybook/addon-links": "^5.3.18",
+    "@storybook/addons": "^5.3.18",
+    "@storybook/react": "^5.3.18",
+    "babel-loader": "^8.1.0"
+  }
+}
