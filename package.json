@@ -19,7 +19,9 @@
     "url": "https://github.com/wwwApp/idmt-380--2020-final--design/issues"
   },
   "homepage": "https://github.com/wwwApp/idmt-380--2020-final--design#readme",
-  "dependencies": {},
+  "dependencies": {
+    "styled-components": "^5.1.0"
+  },
   "devDependencies": {
     "@babel/core": "^7.9.6",
     "@storybook/addon-actions": "^5.3.18",
