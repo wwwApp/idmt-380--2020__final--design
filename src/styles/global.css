@@ -1,1 +1,4 @@
-@import "./colors.css";
+@import "./vars.css";
+@import "./utils.css";
+@import "./typo.css";
+@import "./html.css";

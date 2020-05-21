@@ -1,0 +1,16 @@
+:root {
+  --kk-orange: #f06449;
+  --kk-green: #7bbaa5;
+  --kk-blue: #c0d8e0;
+  --kk-purple: #6969b3;
+  --kk-black: #4e4e4e;
+  --kk-neutral: #ede6e3;
+  --kk-white: #ffffff;
+
+  /* apparently css var can't be used with media query */
+  /* but still having it here for ref */
+  --bp-sm: 600px;
+  --bp-md: 768px;
+  --bp-lg: 992px;
+  --bp-xl: 1200px;
+}
