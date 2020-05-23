@@ -8,7 +8,6 @@
 
 ```
 import React, { Component } from 'react'
-
 import MyComponent from 'kk-design-system'
 
 class Example extends Component {
