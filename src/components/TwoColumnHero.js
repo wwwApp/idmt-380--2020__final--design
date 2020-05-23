@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
-export default function Card(props) {
-  const { data, fullImage } = props;
+export const TwoColumnHero = (props) => {
+  const { title, description, image, fullImage } = props;
 
   return (
     <StyledTwoColumn className={`c-two-col-hero`}>
@@ -13,23 +13,21 @@ export default function Card(props) {
               className={`c-two-col-hero__image ${
                 fullImage ? "c-two-col-hero__image--full" : ""
               }`}
-              src={data.image}
+              src={image}
               alt=""
             />
           </div>
           <div className="c-two-col-hero__col c-two-col-hero__col--right">
             <div className="c-two-col-hero__col__content">
-              <h2 className="c-two-col-hero__title f-heading-2">
-                {data.title}
-              </h2>
-              <p className="c-two-col-hero__desc">{data.description}</p>
+              <h2 className="c-two-col-hero__title f-heading-2">{title}</h2>
+              <p className="c-two-col-hero__desc">{description}</p>
             </div>
           </div>
         </div>
       </div>
     </StyledTwoColumn>
   );
-}
+};
 
 const StyledTwoColumn = styled.div`
   width: 100vw;
@@ -80,3 +78,10 @@ const StyledTwoColumn = styled.div`
     max-width: 70%;
   }
 `;
+
+TwoColumnHero.defaultProps = {
+  title: "Somewhat long title",
+  description:
+    "Aliquam dictum massa vitae orci interdum consectetur. Ut id justo efficitur.",
+  image: "https://picsum.photos/id/237/300/500",
+};

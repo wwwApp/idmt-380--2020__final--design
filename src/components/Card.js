@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 
-export default function Card(props) {
-  const { data, noText } = props;
+export const Card = (props) => {
+  const { image, title, description, tag, noText } = props;
   const ref = useRef(null);
 
   useEffect(() => {
@@ -23,15 +23,15 @@ export default function Card(props) {
     >
       <a href="#" class="c-card__link">
         <div className="c-card__image-wrapper">
-          <img src={data.image} alt="Card Image" />
+          <img src={image} alt="Card Image" />
         </div>
 
         <div className="c-card__tag-wrapper">
-          {data.tag ? <span className="c-card__tag">{data.tag}</span> : null}
+          {tag ? <span className="c-card__tag">{tag}</span> : null}
         </div>
         <div className={`c-card__text-wrapper ${noText ? "u-sr-only" : ""}`}>
-          <h3 className="c-card__title f-heading-3">{data.title}</h3>
-          <p className="c-card__desc">{data.description}</p>
+          <h3 className="c-card__title f-heading-3">{title}</h3>
+          <p className="c-card__desc">{description}</p>
           {
             // button can come here
           }
@@ -39,7 +39,7 @@ export default function Card(props) {
       </a>
     </StyledCard>
   );
-}
+};
 
 const StyledCard = styled.div`
   width: 18rem;
@@ -108,3 +108,11 @@ const StyledCard = styled.div`
   .c-card__desc {
   }
 `;
+
+Card.defaultProps = {
+  title: "Somewhat long title",
+  description:
+    "Aliquam dictum massa vitae orci interdum consectetur. Ut id justo efficitur.",
+  image: "https://picsum.photos/id/237/300/500",
+  tag: "August",
+};

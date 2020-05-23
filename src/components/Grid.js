@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-export default function Card(props) {
+export const Grid = (props) => {
   return (
     <StyledGrid className={`c-grid c-grid--${props.colClass}`}>
       <div className="o-container">
@@ -9,7 +9,7 @@ export default function Card(props) {
       </div>
     </StyledGrid>
   );
-}
+};
 
 const StyledGrid = styled.div`
   .c-grid__inner > * {
@@ -29,3 +29,7 @@ const StyledGrid = styled.div`
     }
   }
 `;
+
+Grid.defaultProps = {
+  colClass: "two-col",
+};
