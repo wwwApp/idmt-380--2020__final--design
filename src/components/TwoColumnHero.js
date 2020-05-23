@@ -20,7 +20,7 @@ export const TwoColumnHero = (props) => {
           <div className="c-two-col-hero__col c-two-col-hero__col--right">
             <div className="c-two-col-hero__col__content">
               <h2 className="c-two-col-hero__title f-heading-2">{title}</h2>
-              <p className="c-two-col-hero__desc">{description}</p>
+              <p className="c-two-col-hero__desc f-tagline">{description}</p>
             </div>
           </div>
         </div>

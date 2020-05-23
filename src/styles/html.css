@@ -10,6 +10,7 @@ html,
 body {
   height: 100%;
   font-family: "Josefin Sans", sans-serif;
+  color: var(--kk-black);
 }
 
 a {

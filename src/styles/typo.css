@@ -1,6 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;300;700&display=swap");
 
 .f-heading-1 {
+  font-weight: 700;
+  font-size: 3rem;
 }
 
 .f-heading-2 {
@@ -11,4 +13,14 @@
 .f-heading-3 {
   font-weight: 700;
   font-size: 1.5rem;
+}
+
+.f-heading-3--400 {
+  font-weight: 400;
+  font-size: 1.5rem;
+}
+
+.f-tagline {
+  font-weight: 400;
+  font-size: 1rem;
 }

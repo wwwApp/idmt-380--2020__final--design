@@ -31,7 +31,7 @@ export const Card = (props) => {
         </div>
         <div className={`c-card__text-wrapper ${noText ? "u-sr-only" : ""}`}>
           <h3 className="c-card__title f-heading-3">{title}</h3>
-          <p className="c-card__desc">{description}</p>
+          <p className="c-card__desc f-tagline">{description}</p>
           {
             // button can come here
           }
