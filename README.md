@@ -2,13 +2,13 @@
 
 ## Install
 
-`npm install --save blockbuster-design-system`
+`yarn add kk-design-system`
 
 ## Usage
 
 ```
 import React, { Component } from 'react'
-import MyComponent from 'kk-design-system'
+import { MyComponent } from 'kk-design-system'
 
 class Example extends Component {
   render() {
