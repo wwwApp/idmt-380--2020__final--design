@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 
 export const Card = (props) => {
-  const { image, title, description, tag, noText } = props;
+  const { image, title, description, tag, url, noText } = props;
   const ref = useRef(null);
 
   useEffect(() => {
@@ -21,7 +21,7 @@ export const Card = (props) => {
       className={`c-card ${noText ? "c-card--no-text" : ""}`}
       ref={ref}
     >
-      <a href="#" class="c-card__link">
+      <a href={url} class="c-card__link">
         <div className="c-card__image-wrapper">
           <img src={image} alt="Card Image" />
         </div>
@@ -52,6 +52,11 @@ const StyledCard = styled.div`
     display: flex;
     justify-content: center;
     align-items: flex-end;
+    transition: all 0.5s;
+
+    &:hover {
+      box-shadow: 3px 3px var(--kk-white), 5px 5px var(--kk-black);
+    }
   }
 
   .c-card__image-wrapper {
@@ -115,4 +120,5 @@ Card.defaultProps = {
     "Aliquam dictum massa vitae orci interdum consectetur. Ut id justo efficitur.",
   image: "https://picsum.photos/id/237/300/500",
   tag: "August",
+  url: "#",
 };

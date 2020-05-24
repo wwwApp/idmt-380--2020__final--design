@@ -2,7 +2,9 @@
 
 ## Install
 
-`yarn add kk-design-system`
+```
+yarn add kk-design-system
+```
 
 ## Usage
 
