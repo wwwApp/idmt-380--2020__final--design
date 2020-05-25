@@ -39,14 +39,25 @@ const StyledTwoColumn = styled.div`
   .o-row {
     width: 100%;
     height: 100%;
+    flex-direction: column;
+    flex-wrap: no-wrap;
+
+    @media only screen and (min-width: 768px) {
+      flex-direction: row;
+    }
   }
 
   .c-two-col-hero__col {
-    width: 50%;
-    height: 100%;
+    width: 100%;
+    height: 50%;
     display: flex;
     align-items: center;
     position: relative;
+
+    @media only screen and (min-width: 768px) {
+      width: 50%;
+      height: 100%;
+    }
   }
 
   .c-two-col-hero__col--left {
@@ -54,10 +65,14 @@ const StyledTwoColumn = styled.div`
   }
 
   .c-two-col-hero__image {
-    width: 70%;
+    width: 100%;
     height: auto;
     max-height: 80%;
     object-fit: cover;
+
+    @media only screen and (min-width: 768px) {
+      width: 70%;
+    }
 
     &.c-two-col-hero__image--full {
       width: 100%;

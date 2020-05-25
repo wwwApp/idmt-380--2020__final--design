@@ -151,6 +151,11 @@ export const NavigationBar = (props) => {
       const isExpanded = navRef.current.classList.contains("is-open");
       hamburgerRef.current.setAttribute("aria-expanded", isExpanded);
     });
+
+    const urlToken = window.location.href.split("/");
+    const currentIndex = urlToken[urlToken.length - 1];
+    const current = document.getElementById(`${currentIndex}`);
+    if (current) current.classList.add("is-active");
   });
 
   return (
