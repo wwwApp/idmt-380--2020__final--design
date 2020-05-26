@@ -10,7 +10,7 @@ export const Default = () => (
   <NavigationBar>
     <a href="#">Logo</a>
     <a href="#">Item 1</a>
-    <a href="#" className="is-active">
+    <a href="#" className="active">
       Item 2
     </a>
     <a href="#">Item 3</a>

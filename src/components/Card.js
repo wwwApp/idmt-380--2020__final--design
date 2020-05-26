@@ -1,8 +1,9 @@
 import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
+import { Button } from "./Button";
 
 export const Card = (props) => {
-  const { image, title, description, tag, url, noText } = props;
+  const { image, title, description, tag, url, btnText, noText } = props;
   const ref = useRef(null);
 
   useEffect(() => {
@@ -11,7 +12,7 @@ export const Card = (props) => {
     if (noText) {
       newHeight = `${cardRef.offsetWidth * 1}px`;
     } else {
-      newHeight = `${cardRef.offsetWidth * 1.35}px`;
+      newHeight = `${cardRef.offsetWidth * 1.5}px`;
     }
     cardRef.style.height = newHeight;
   });
@@ -32,9 +33,11 @@ export const Card = (props) => {
         <div className={`c-card__text-wrapper ${noText ? "u-sr-only" : ""}`}>
           <h3 className="c-card__title f-heading-3">{title}</h3>
           <p className="c-card__desc f-tagline">{description}</p>
-          {
-            // button can come here
-          }
+          {btnText && (
+            <div className="c-card__cta">
+              <Button>{btnText}</Button>
+            </div>
+          )}
         </div>
       </a>
     </StyledCard>
@@ -92,7 +95,7 @@ const StyledCard = styled.div`
   }
 
   .c-card__text-wrapper {
-    max-height: 10rem;
+    max-height: 15rem;
     padding: 1.5rem 1rem;
     width: 100%;
     color: var(--kk-white);
@@ -110,7 +113,11 @@ const StyledCard = styled.div`
     margin-bottom: 1rem;
   }
 
-  .c-card__desc {
+  .c-card__cta {
+    > * {
+      padding: 0;
+      margin-top: 1rem;
+    }
   }
 `;
 

@@ -1,8 +1,17 @@
 import React from "react";
 import styled from "styled-components";
+import { Button } from "./Button";
 
 export const TwoColumnHero = (props) => {
-  const { title, description, image, bgColor, reverseOrder, fullImage } = props;
+  const {
+    title,
+    description,
+    image,
+    btnText,
+    bgColor,
+    reverseOrder,
+    fullImage,
+  } = props;
 
   return (
     <StyledTwoColumn
@@ -25,6 +34,11 @@ export const TwoColumnHero = (props) => {
             <div className="c-two-col-hero__col__content">
               <h2 className="c-two-col-hero__title f-heading-2">{title}</h2>
               <p className="c-two-col-hero__desc f-tagline">{description}</p>
+              {btnText && (
+                <div className="c-two-col-hero__cta">
+                  <Button>{btnText}</Button>
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -35,13 +49,18 @@ export const TwoColumnHero = (props) => {
 
 const StyledTwoColumn = styled.div`
   width: 100vw;
-  height: 100vh;
   max-height: 50rem;
   overflow: hidden;
 
+  @media only screen and (min-width: 768px) {
+    height: 100vh;
+  }
+
   &.c-two-col-hero--reverse {
     .c-two-col-hero__col--left {
-      order: 2;
+      @media only screen and (min-width: 768px) {
+        order: 2;
+      }
     }
   }
 
@@ -49,7 +68,6 @@ const StyledTwoColumn = styled.div`
     width: 100%;
     height: 100%;
     flex-direction: column;
-    flex-wrap: no-wrap;
 
     @media only screen and (min-width: 768px) {
       flex-direction: row;
@@ -57,8 +75,6 @@ const StyledTwoColumn = styled.div`
   }
 
   .c-two-col-hero__col {
-    width: 100%;
-    height: 50%;
     display: flex;
     align-items: center;
     position: relative;
@@ -76,22 +92,29 @@ const StyledTwoColumn = styled.div`
   .c-two-col-hero__image {
     width: 100%;
     height: auto;
-    max-height: 80%;
+    max-height: 30rem;
     object-fit: cover;
 
     @media only screen and (min-width: 768px) {
-      width: 70%;
+      /* width: 70%; */
+      max-height: 80%;
     }
 
     &.c-two-col-hero__image--full {
       width: 100%;
       height: 100%;
-      max-height: none;
+      @media only screen and (min-width: 768px) {
+        max-height: none;
+      }
     }
   }
 
   .c-two-col-hero__col__content {
-    padding: 3rem;
+    padding: 3rem 1rem;
+
+    @media only screen and (min-width: 768px) {
+      padding: 3rem;
+    }
   }
 
   .c-two-col-hero__title {
@@ -99,7 +122,17 @@ const StyledTwoColumn = styled.div`
   }
 
   .c-two-col-hero__desc {
-    max-width: 70%;
+    @media only screen and (min-width: 768px) {
+      max-width: 70%;
+    }
+  }
+
+  .c-two-col-hero__cta {
+    margin-top: 2rem;
+
+    > * {
+      padding: 0;
+    }
   }
 `;
 

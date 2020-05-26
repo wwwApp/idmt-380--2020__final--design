@@ -8,4 +8,4 @@ export default {
 
 export const Default = () => <Card noText={true} />;
 
-export const WithText = () => <Card />;
+export const WithText = () => <Card btnText="Purchase" />;

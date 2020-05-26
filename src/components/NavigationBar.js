@@ -34,6 +34,9 @@ const StyledNavBar = styled.div`
     justify-content: center;
     align-items: center;
     overflow-y: auto;
+    z-index: 999;
+    background-color: var(--kk-white);
+    font-size: 2rem;
 
     @media only screen and (min-width: 768px) {
       justify-content: flex-end;
@@ -44,6 +47,7 @@ const StyledNavBar = styled.div`
       flex-direction: row;
       display: flex;
       overflow: unset;
+      font-size: 1rem;
     }
   }
 
@@ -83,7 +87,7 @@ const StyledNavBar = styled.div`
         }
       }
 
-      &.is-active {
+      &.active {
         /* background-color: var(--kk-black); */
         /* color: var(--kk-white); */
 
@@ -151,11 +155,6 @@ export const NavigationBar = (props) => {
       const isExpanded = navRef.current.classList.contains("is-open");
       hamburgerRef.current.setAttribute("aria-expanded", isExpanded);
     });
-
-    const urlToken = window.location.href.split("/");
-    const currentIndex = urlToken[urlToken.length - 1];
-    const current = document.getElementById(`${currentIndex}`);
-    if (current) current.classList.add("is-active");
   });
 
   return (

@@ -8,7 +8,13 @@ const StyledSlider = styled.div`
   overflow: hidden;
   position: relative;
 
-  .c-slider__dots- {
+  .c-slider__items {
+    @media only screen and (max-width: 768px) {
+      padding-bottom: 5rem;
+    }
+  }
+
+  .c-slider__dots {
     position: absolute;
     left: 0;
     width: 100%;
@@ -83,7 +89,7 @@ export const Slideshow = (props) => {
     slidesToScroll: 1,
     accessibility: true,
     className: "c-slider__items",
-    dotsClass: "c-slider__dots-",
+    dotsClass: "c-slider__dots",
     customPaging: (i) => {
       return (
         <button className="c-slider__dot" aria-current="false">

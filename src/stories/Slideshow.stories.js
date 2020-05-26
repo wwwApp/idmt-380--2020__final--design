@@ -10,7 +10,7 @@ export default {
 export const Default = () => (
   <Slideshow>
     <TwoColumnHero />
-    <TwoColumnHero />
+    <TwoColumnHero fullImage={true} />
     <TwoColumnHero />
     <TwoColumnHero />
   </Slideshow>

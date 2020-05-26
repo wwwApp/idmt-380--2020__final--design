@@ -6,6 +6,6 @@ export default {
   component: TwoColumnHero,
 };
 
-export const Default = () => <TwoColumnHero />;
+export const Default = () => <TwoColumnHero btnText="More Info" />;
 
 export const FullImage = () => <TwoColumnHero fullImage={true} />;

@@ -14,7 +14,7 @@
 
 .bg--orange {
   background-color: var(--kk-orange);
-  color: var(--kk-white);
+  color: var(--kk-black);
 }
 
 .bg--green {
@@ -29,7 +29,7 @@
 
 .bg--purple {
   background-color: var(--kk-purple);
-  color: var(--kk-black);
+  color: var(--kk-white);
 }
 
 .bg--black {
@@ -39,5 +39,10 @@
 
 .bg--neutral {
   background-color: var(--kk-neutral);
+  color: var(--kk-black);
+}
+
+.bg--white {
+  background-color: var(--kk-white);
   color: var(--kk-black);
 }
