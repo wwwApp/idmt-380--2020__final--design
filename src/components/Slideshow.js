@@ -101,7 +101,11 @@ export const Slideshow = (props) => {
     <StyledSlider className="c-slider" ref={slider}>
       <Slider {...settings}>
         {props.children.map((item, index) => {
-          return <div className="c-slider__item">{item}</div>;
+          return (
+            <div key={index} className="c-slider__item">
+              {item}
+            </div>
+          );
         })}
       </Slider>
     </StyledSlider>

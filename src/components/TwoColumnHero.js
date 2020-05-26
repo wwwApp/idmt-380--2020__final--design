@@ -2,10 +2,14 @@ import React from "react";
 import styled from "styled-components";
 
 export const TwoColumnHero = (props) => {
-  const { title, description, image, fullImage } = props;
+  const { title, description, image, bgColor, reverseOrder, fullImage } = props;
 
   return (
-    <StyledTwoColumn className={`c-two-col-hero`}>
+    <StyledTwoColumn
+      className={`c-two-col-hero ${reverseOrder && `c-two-col-hero--reverse`} ${
+        bgColor && `bg--${bgColor}`
+      }`}
+    >
       <div className="o-container">
         <div className="o-row">
           <div className="c-two-col-hero__col c-two-col-hero__col--left">
@@ -33,8 +37,13 @@ const StyledTwoColumn = styled.div`
   width: 100vw;
   height: 100vh;
   max-height: 50rem;
-  background-color: var(--kk-neutral);
   overflow: hidden;
+
+  &.c-two-col-hero--reverse {
+    .c-two-col-hero__col--left {
+      order: 2;
+    }
+  }
 
   .o-row {
     width: 100%;

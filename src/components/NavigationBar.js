@@ -167,7 +167,11 @@ export const NavigationBar = (props) => {
             <ul className="c-nav__items">
               {props.children.map((item, index) => {
                 if (index != 0) {
-                  return <li className="c-nav__item">{item}</li>;
+                  return (
+                    <li key={index} className="c-nav__item">
+                      {item}
+                    </li>
+                  );
                 }
               })}
             </ul>

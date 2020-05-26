@@ -21,7 +21,7 @@ export const Card = (props) => {
       className={`c-card ${noText ? "c-card--no-text" : ""}`}
       ref={ref}
     >
-      <a href={url} class="c-card__link">
+      <a href={url} className="c-card__link">
         <div className="c-card__image-wrapper">
           <img src={image} alt="Card Image" />
         </div>
