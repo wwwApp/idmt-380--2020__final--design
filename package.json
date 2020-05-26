@@ -1,6 +1,6 @@
 {
   "name": "kk-design-system",
-  "version": "1.4.3",
+  "version": "1.5.1",
   "description": "KK design system",
   "main": "dist/index.js",
   "scripts": {

@@ -11,3 +11,33 @@
   width: 1px !important;
   white-space: nowrap !important;
 }
+
+.bg--orange {
+  background-color: var(--kk-orange);
+  color: var(--kk-white);
+}
+
+.bg--green {
+  background-color: var(--kk-green);
+  color: var(--kk-black);
+}
+
+.bg--blue {
+  background-color: var(--kk-blue);
+  color: var(--kk-black);
+}
+
+.bg--purple {
+  background-color: var(--kk-purple);
+  color: var(--kk-black);
+}
+
+.bg--black {
+  background-color: var(--kk-black);
+  color: var(--kk-white);
+}
+
+.bg--neutral {
+  background-color: var(--kk-neutral);
+  color: var(--kk-black);
+}
