@@ -1,14 +1,11 @@
 import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 
-const StyledNavBar = styled.div`
+const StyledHeader = styled.header`
   width: 100vw;
   position: relative;
 
-  @media only screen and (min-width: 600px) {
-  }
-
-  .c-nav__inner {
+  .c-header__inner {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -16,12 +13,7 @@ const StyledNavBar = styled.div`
     padding: 2rem 0;
   }
 
-  .c-nav__logo {
-    font-size: 1.25rem;
-    font-weight: 700;
-  }
-
-  .c-nav__items {
+  .c-header__items {
     display: none;
 
     position: absolute;
@@ -51,7 +43,7 @@ const StyledNavBar = styled.div`
     }
   }
 
-  .c-nav__item {
+  .c-header__item {
     display: flex;
 
     &:not(:last-child) {
@@ -98,7 +90,7 @@ const StyledNavBar = styled.div`
     }
   }
 
-  .c-nav__hamburger {
+  .c-header__hamburger {
     width: 2rem;
     height: 2rem;
     display: flex;
@@ -111,7 +103,7 @@ const StyledNavBar = styled.div`
     }
   }
 
-  .c-nav__hamburger__line {
+  .c-header__hamburger__line {
     width: 2rem;
     height: 0.2rem;
     background-color: var(--kk-black);
@@ -122,16 +114,16 @@ const StyledNavBar = styled.div`
     }
   }
 
-  .c-nav__items-wrapper {
+  .c-header__items-wrapper {
     display: flex;
     align-items: center;
 
     &.is-open {
-      .c-nav__items {
+      .c-header__items {
         display: flex;
       }
 
-      .c-nav__hamburger__line {
+      .c-header__hamburger__line {
         &:first-child {
           transform: translate3d(0, 5px, 0) rotate(-45deg);
         }
@@ -144,48 +136,54 @@ const StyledNavBar = styled.div`
   }
 `;
 
-export const NavigationBar = (props) => {
+export const Header = (props) => {
   const navRef = useRef(null);
   const hamburgerRef = useRef(null);
 
-  useEffect(() => {
-    hamburgerRef.current.addEventListener("click", () => {
-      navRef.current.classList.toggle("is-open");
+  const { children, logo } = props;
 
-      const isExpanded = navRef.current.classList.contains("is-open");
-      hamburgerRef.current.setAttribute("aria-expanded", isExpanded);
-    });
+  useEffect(() => {
+    if (hamburgerRef.current) {
+      hamburgerRef.current.addEventListener("click", () => {
+        navRef.current.classList.toggle("is-open");
+
+        const isExpanded = navRef.current.classList.contains("is-open");
+        hamburgerRef.current.setAttribute("aria-expanded", isExpanded);
+      });
+    }
   });
 
   return (
-    <StyledNavBar className="c-nav">
+    <StyledHeader className="c-header">
       <div className="o-container">
-        <div className="c-nav__inner">
-          <div className="c-nav__logo">{props.children[0]}</div>
-          <div className="c-nav__items-wrapper" ref={navRef}>
-            <ul className="c-nav__items">
-              {props.children.map((item, index) => {
-                if (index != 0) {
-                  return (
-                    <li key={index} className="c-nav__item">
-                      {item}
-                    </li>
-                  );
-                }
-              })}
-            </ul>
+        <div className="c-header__inner">
+          <div className="c-header__logo">{logo}</div>
+          {children && (
+            <div className="c-header__items-wrapper" ref={navRef}>
+              <nav>
+                <ul className="c-header__items">
+                  {children.map((item, index) => {
+                    return (
+                      <li key={index} className="c-header__item">
+                        {item}
+                      </li>
+                    );
+                  })}
+                </ul>
+              </nav>
 
-            <button
-              className="c-nav__hamburger"
-              aria-expanded="false"
-              ref={hamburgerRef}
-            >
-              <span className="c-nav__hamburger__line"></span>
-              <span className="c-nav__hamburger__line"></span>
-            </button>
-          </div>
+              <button
+                className="c-header__hamburger"
+                aria-expanded="false"
+                ref={hamburgerRef}
+              >
+                <span className="c-header__hamburger__line"></span>
+                <span className="c-header__hamburger__line"></span>
+              </button>
+            </div>
+          )}
         </div>
       </div>
-    </StyledNavBar>
+    </StyledHeader>
   );
 };

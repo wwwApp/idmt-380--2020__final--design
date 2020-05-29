@@ -15,12 +15,3 @@ export const Default = () => (
     <TwoColumnHero />
   </Slideshow>
 );
-
-// export const WithControls = () => (
-//   <Slideshow showControls={true}>
-//     <TwoColumnHero />
-//     <TwoColumnHero />
-//     <TwoColumnHero />
-//     <TwoColumnHero />
-//   </Slideshow>
-// );

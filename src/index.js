@@ -8,3 +8,5 @@ export * from "./components/NavigationBar";
 export * from "./components/Slideshow";
 export * from "./components/TextInput";
 export * from "./components/SelectorInput";
+export * from "./components/Footer";
+export * from "./components/Header";

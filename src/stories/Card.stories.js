@@ -6,6 +6,6 @@ export default {
   component: Card,
 };
 
-export const Default = () => <Card noText={true} />;
-
 export const WithText = () => <Card btnText="Purchase" />;
+
+export const WithoutText = () => <Card noText />;
