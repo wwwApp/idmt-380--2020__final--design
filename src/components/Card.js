@@ -3,7 +3,16 @@ import styled from "styled-components";
 import { Button } from "./Button";
 
 export const Card = (props) => {
-  const { image, title, description, tag, url, btnText, noText } = props;
+  const {
+    image,
+    title,
+    description,
+    tag,
+    url,
+    btnText,
+    btnClick,
+    noText,
+  } = props;
   const ref = useRef(null);
 
   useEffect(() => {
@@ -35,7 +44,7 @@ export const Card = (props) => {
           <p className="c-card__desc f-tagline">{description}</p>
           {btnText && (
             <div className="c-card__cta">
-              <Button>{btnText}</Button>
+              <Button onClick={btnClick}>{btnText}</Button>
             </div>
           )}
         </div>

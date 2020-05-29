@@ -6,3 +6,5 @@ export * from "./components/Grid";
 export * from "./components/TwoColumnHero";
 export * from "./components/NavigationBar";
 export * from "./components/Slideshow";
+export * from "./components/TextInput";
+export * from "./components/SelectorInput";
