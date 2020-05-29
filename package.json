@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/wwwApp/idmt-380--2020-final--design#readme",
   "dependencies": {
+    "react-select": "^3.1.0",
     "styled-components": "^5.1.0"
   },
   "devDependencies": {
