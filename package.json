@@ -1,6 +1,6 @@
 {
   "name": "kk-design-system",
-  "version": "1.7.0",
+  "version": "1.7.2",
   "description": "KK design system",
   "main": "dist/index.js",
   "scripts": {
@@ -11,7 +11,12 @@
   },
   "babel": {
     "presets": [
-      "react-app"
+      [
+        "react-app",
+        {
+          "absoluteRuntime": false
+        }
+      ]
     ]
   },
   "repository": "git+https://github.com/wwwApp/kk-design-system.git",
@@ -23,10 +28,11 @@
   },
   "homepage": "https://github.com/wwwApp/kk-design-system#readme",
   "dependencies": {
+    "@babel/runtime": "^7.10.1",
     "babel-preset-react-app": "^9.1.2",
+    "react-select": "^3.1.0",
     "react-slick": "^0.26.1",
     "slick-carousel": "^1.8.1",
-    "react-select": "^3.1.0",
     "styled-components": "^5.1.0"
   },
   "devDependencies": {
