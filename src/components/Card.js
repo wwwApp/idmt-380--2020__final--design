@@ -39,7 +39,7 @@ export const Card = (props) => {
         <div className="c-card__tag-wrapper">
           {tag ? <span className="c-card__tag">{tag}</span> : null}
         </div>
-        <div className={`c-card__text-wrapper ${noText ? "u-sr-only" : ""}`}>
+        <div className={`c-card__text-wrapper ${noText ? "overlay" : ""}`}>
           <h3 className="c-card__title f-heading-3">{title}</h3>
           <p className="c-card__desc f-tagline">{description}</p>
           {btnText && (
@@ -68,6 +68,10 @@ const StyledCard = styled.div`
 
     &:hover {
       box-shadow: 3px 3px var(--kk-white), 5px 5px var(--kk-black);
+
+      .overlay {
+        opacity: 1;
+      }
     }
   }
 
@@ -116,6 +120,37 @@ const StyledCard = styled.div`
       rgba(78, 78, 78, 0.6474964985994398) 43%,
       rgba(255, 255, 255, 0) 100%
     );
+
+    &.overlay {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      max-height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: all 0.3s ease-in;
+      background: none;
+
+      > * {
+        z-index: 1;
+      }
+
+      &:before {
+        content: "";
+        background-color: var(--kk-black);
+        opacity: 0.7;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+      }
+    }
   }
 
   .c-card__title {
@@ -135,6 +170,6 @@ Card.defaultProps = {
   description:
     "Aliquam dictum massa vitae orci interdum consectetur. Ut id justo efficitur.",
   image: "https://picsum.photos/id/237/300/500",
-  tag: "August",
+  tag: "",
   url: "#",
 };
