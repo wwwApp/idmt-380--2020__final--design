@@ -1,8 +1,18 @@
 import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
+import { Button } from "./Button";
 
-export default function Card(props) {
-  const { data, noText } = props;
+export const Card = (props) => {
+  const {
+    image,
+    title,
+    description,
+    tag,
+    url,
+    btnText,
+    btnClick,
+    noText,
+  } = props;
   const ref = useRef(null);
 
   useEffect(() => {
@@ -11,7 +21,7 @@ export default function Card(props) {
     if (noText) {
       newHeight = `${cardRef.offsetWidth * 1}px`;
     } else {
-      newHeight = `${cardRef.offsetWidth * 1.35}px`;
+      newHeight = `${cardRef.offsetWidth * 1.5}px`;
     }
     cardRef.style.height = newHeight;
   });
@@ -21,25 +31,27 @@ export default function Card(props) {
       className={`c-card ${noText ? "c-card--no-text" : ""}`}
       ref={ref}
     >
-      <a href="#" class="c-card__link">
+      <a href={url} className="c-card__link">
         <div className="c-card__image-wrapper">
-          <img src={data.image} alt="Card Image" />
+          <img src={image} alt="Card Image" />
         </div>
 
         <div className="c-card__tag-wrapper">
-          {data.tag ? <span className="c-card__tag">{data.tag}</span> : null}
+          {tag ? <span className="c-card__tag">{tag}</span> : null}
         </div>
-        <div className={`c-card__text-wrapper ${noText ? "u-sr-only" : ""}`}>
-          <h3 className="c-card__title f-heading-3">{data.title}</h3>
-          <p className="c-card__desc">{data.description}</p>
-          {
-            // button can come here
-          }
+        <div className={`c-card__text-wrapper ${noText ? "overlay" : ""}`}>
+          <h3 className="c-card__title f-heading-3">{title}</h3>
+          <p className="c-card__desc f-tagline">{description}</p>
+          {btnText && (
+            <div className="c-card__cta">
+              <Button onClick={btnClick}>{btnText}</Button>
+            </div>
+          )}
         </div>
       </a>
     </StyledCard>
   );
-}
+};
 
 const StyledCard = styled.div`
   width: 18rem;
@@ -52,6 +64,15 @@ const StyledCard = styled.div`
     display: flex;
     justify-content: center;
     align-items: flex-end;
+    transition: all 0.5s;
+
+    &:hover {
+      box-shadow: 3px 3px var(--kk-white), 5px 5px var(--kk-black);
+
+      .overlay {
+        opacity: 1;
+      }
+    }
   }
 
   .c-card__image-wrapper {
@@ -87,7 +108,7 @@ const StyledCard = styled.div`
   }
 
   .c-card__text-wrapper {
-    max-height: 10rem;
+    max-height: 15rem;
     padding: 1.5rem 1rem;
     width: 100%;
     color: var(--kk-white);
@@ -99,12 +120,56 @@ const StyledCard = styled.div`
       rgba(78, 78, 78, 0.6474964985994398) 43%,
       rgba(255, 255, 255, 0) 100%
     );
+
+    &.overlay {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      max-height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: all 0.3s ease-in;
+      background: none;
+
+      > * {
+        z-index: 1;
+      }
+
+      &:before {
+        content: "";
+        background-color: var(--kk-black);
+        opacity: 0.7;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+      }
+    }
   }
 
   .c-card__title {
     margin-bottom: 1rem;
   }
 
-  .c-card__desc {
+  .c-card__cta {
+    > * {
+      padding: 0;
+      margin-top: 1rem;
+    }
   }
 `;
+
+Card.defaultProps = {
+  title: "Somewhat long title",
+  description:
+    "Aliquam dictum massa vitae orci interdum consectetur. Ut id justo efficitur.",
+  image: "https://picsum.photos/id/237/300/500",
+  tag: "",
+  url: "#",
+};

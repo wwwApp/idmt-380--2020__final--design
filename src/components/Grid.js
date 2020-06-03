@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-export default function Card(props) {
+export const Grid = (props) => {
   return (
     <StyledGrid className={`c-grid c-grid--${props.colClass}`}>
       <div className="o-container">
@@ -9,7 +9,7 @@ export default function Card(props) {
       </div>
     </StyledGrid>
   );
-}
+};
 
 const StyledGrid = styled.div`
   .c-grid__inner > * {
@@ -17,15 +17,19 @@ const StyledGrid = styled.div`
     width: 100%;
 
     @media only screen and (min-width: 600px) {
-      width: 45%;
+      width: calc(50% - 2rem);
     }
   }
 
   &.c-grid--three-col {
     .c-grid__inner > * {
       @media only screen and (min-width: 992px) {
-        width: 30%;
+        width: calc(33.3333% - 2rem);
       }
     }
   }
 `;
+
+Grid.defaultProps = {
+  colClass: "two-col",
+};

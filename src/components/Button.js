@@ -1,8 +1,5 @@
-
 import React from "react";
 import styled from "styled-components";
-
-
 
 const StyledButton = styled.div`
 
@@ -15,7 +12,6 @@ padding: 1em;
     font-weight: 400;
     cursor: pointer;
     transition: all 0.5s;
-    
   }
   
 
@@ -77,9 +73,7 @@ padding: 1em;
     padding: 10px 50px;
     font-size: 18px;
   }
-  
-.btn--medium {
-  
+  .btn--medium {
     padding: 15px 80px;
     font-size: 18px;
   }
@@ -120,25 +114,23 @@ export const Button = ( {
 
 
 }) => {
-
-    const checkButtonStyle = STYLES.includes(buttonStyle) 
+  const checkButtonStyle = STYLES.includes(buttonStyle)
     ? buttonStyle
     : STYLES[0];
 
-    const checkButtonSize = SIZES.includes(buttonSize) 
-    ? buttonSize
-    : SIZES[0];
+  const checkButtonSize = SIZES.includes(buttonSize) ? buttonSize : SIZES[0];
 
-    return (
-
+  return (
     <StyledButton>
-    <div className="btn--padding">
-        <button className={`btn ${checkButtonStyle} ${checkButtonSize}`} onClick = {onClick} type= {type}>
-            {children}
+      <div className="btn--padding">
+        <button
+          className={`btn ${checkButtonStyle} ${checkButtonSize}`}
+          onClick={onClick}
+          type={type}
+        >
+          {children}
         </button>
-    </div>
+      </div>
     </StyledButton>
-    )
-
-
-}
+  );
+};

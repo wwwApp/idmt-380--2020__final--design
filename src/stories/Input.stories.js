@@ -32,7 +32,6 @@ export default {
    <SelectorInput options={options} />
     
    );
-
  
 
   
