@@ -2,7 +2,6 @@ import React from 'react';
 import { action } from '@storybook/addon-actions';
 import { TextInput } from '../components/TextInput';
 import { SelectorInput } from '../components/SelectorInput';
-import { SubmitInput } from '../components/SubmitInput';
 
 
 // create a const when defining different options in the selector input
@@ -34,12 +33,6 @@ export default {
     
    );
 
-   // Submit Input
-   export const submitInput = () => (
-    
-    <SubmitInput options={options} />
-     
-    );
  
 
   
