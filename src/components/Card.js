@@ -12,6 +12,7 @@ export const Card = (props) => {
     btnText,
     btnClick,
     noText,
+    customClass,
   } = props;
   const ref = useRef(null);
 
@@ -28,7 +29,7 @@ export const Card = (props) => {
 
   return (
     <StyledCard
-      className={`c-card ${noText ? "c-card--no-text" : ""}`}
+      className={`c-card ${noText ? "c-card--no-text" : ""} ${customClass}`}
       ref={ref}
     >
       <a href={url} className="c-card__link">
@@ -172,4 +173,5 @@ Card.defaultProps = {
   image: "https://picsum.photos/id/237/300/500",
   tag: "",
   url: "#",
+  customClass: "",
 };

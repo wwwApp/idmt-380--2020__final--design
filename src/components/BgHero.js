@@ -2,10 +2,10 @@ import * as React from "react";
 import styled from "styled-components";
 
 export const BgHero = (props) => {
-  const { bgColor, bgSize } = props;
+  const { customClass, bgColor, bgSize } = props;
 
   return (
-    <HeroWrapper className="c-bg-hero">
+    <HeroWrapper className={`c-bg-hero ${customClass ? customClass : ""}`}>
       <div
         className="c-bg-hero__inner"
         style={bgColor && { backgroundColor: `${bgColor}` }}
@@ -42,3 +42,7 @@ const HeroWrapper = styled.div`
     z-index: 0;
   }
 `;
+
+BgHero.defaultProps = {
+  customClass: "",
+};

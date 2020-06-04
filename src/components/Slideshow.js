@@ -104,7 +104,7 @@ export const Slideshow = (props) => {
   };
 
   return (
-    <StyledSlider className="c-slider" ref={slider}>
+    <StyledSlider className={`c-slider ${props.customClass}`} ref={slider}>
       <Slider {...settings}>
         {props.children.map((item, index) => {
           return (
@@ -116,4 +116,8 @@ export const Slideshow = (props) => {
       </Slider>
     </StyledSlider>
   );
+};
+
+Slideshow.defaultProps = {
+  customClass: "",
 };

@@ -140,7 +140,7 @@ export const Header = (props) => {
   const navRef = useRef(null);
   const hamburgerRef = useRef(null);
 
-  const { children, logo } = props;
+  const { children, logo, customClass } = props;
 
   useEffect(() => {
     if (hamburgerRef.current) {
@@ -154,7 +154,7 @@ export const Header = (props) => {
   });
 
   return (
-    <StyledHeader className="c-header">
+    <StyledHeader className={`c-header ${customClass}`}>
       <div className="o-container">
         <div className="c-header__inner">
           <div className="c-header__logo">{logo}</div>
@@ -186,4 +186,8 @@ export const Header = (props) => {
       </div>
     </StyledHeader>
   );
+};
+
+Header.defaultProps = {
+  customClass: "",
 };

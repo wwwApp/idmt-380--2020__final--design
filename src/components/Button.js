@@ -83,6 +83,7 @@ export const Button = ({
   onClick,
   buttonStyle,
   buttonSize,
+  customClass,
 }) => {
   const checkButtonStyle = STYLES.includes(buttonStyle)
     ? buttonStyle
@@ -91,16 +92,18 @@ export const Button = ({
   const checkButtonSize = SIZES.includes(buttonSize) ? buttonSize : SIZES[0];
 
   return (
-    <StyledButton>
-      <div className="btn--padding">
-        <button
-          className={`btn ${checkButtonStyle} ${checkButtonSize}`}
-          onClick={onClick}
-          type={type}
-        >
-          {children}
-        </button>
-      </div>
+    <StyledButton className={`${customClass}`}>
+      <button
+        className={`btn ${checkButtonStyle} ${checkButtonSize}`}
+        onClick={onClick}
+        type={type}
+      >
+        {children}
+      </button>
     </StyledButton>
   );
+};
+
+Button.defaultProps = {
+  customClass: "",
 };

@@ -4,10 +4,10 @@ import { TextInput } from "./TextInput";
 import { Button } from "./Button";
 
 export const Footer = (props) => {
-  const { btnText, title, description, noNewsletter } = props;
+  const { btnText, title, description, noNewsletter, customClass } = props;
 
   return (
-    <FooterWrapper className="footer">
+    <FooterWrapper className={`footer ${customClass}`}>
       <div className="o-container footer__inner">
         <div className="footer__sub-wrapper">
           <h2>{title}</h2>
@@ -83,3 +83,7 @@ const FooterWrapper = styled.footer`
     }
   }
 `;
+
+Footer.defaultProps = {
+  customClass: "",
+};

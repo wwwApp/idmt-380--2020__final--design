@@ -8,16 +8,16 @@ export const TwoColumnHero = (props) => {
     description,
     image,
     btnText,
-    bgColor,
     reverseOrder,
     fullImage,
+    customClass,
   } = props;
 
   return (
     <StyledTwoColumn
-      className={`c-two-col-hero ${reverseOrder && `c-two-col-hero--reverse`} ${
-        bgColor && `bg--${bgColor}`
-      }`}
+      className={`c-two-col-hero ${
+        reverseOrder ? "c-two-col-hero--reverse" : ""
+      } ${customClass}`}
     >
       <div className="o-container">
         <div className="o-row">
@@ -141,4 +141,5 @@ TwoColumnHero.defaultProps = {
   description:
     "Aliquam dictum massa vitae orci interdum consectetur. Ut id justo efficitur.",
   image: "https://picsum.photos/id/237/300/500",
+  customClass: "",
 };

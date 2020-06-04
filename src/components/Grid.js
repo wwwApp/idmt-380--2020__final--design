@@ -3,7 +3,9 @@ import styled from "styled-components";
 
 export const Grid = (props) => {
   return (
-    <StyledGrid className={`c-grid c-grid--${props.colClass}`}>
+    <StyledGrid
+      className={`c-grid c-grid--${props.colClass} ${props.customClass}`}
+    >
       <div className="o-container">
         <div className="c-grid__inner o-row">{props.children}</div>
       </div>
@@ -32,4 +34,5 @@ const StyledGrid = styled.div`
 
 Grid.defaultProps = {
   colClass: "two-col",
+  customClass: "",
 };
